@@ -134,4 +134,19 @@ total_sales = 0
 for sale in sales:
   total_sales += float(sale.strip('$'))
   
-print(total_sales)
+thread_sold_split = []
+for thread_color in thread_sold:
+  for color in thread_color.split("&"):
+    thread_sold_split.append(color)
+
+def color_count(color):
+  count_color = 0
+  for thread_color in thread_sold_split:
+    if color == thread_color:
+      count_color += 1
+  return count_color
+
+colors = ['red', 'yellow', 'green', 'white', 'blue', 'purple']
+
+for color in colors:
+  print("Thread Shed sold {0} threads of {1} thread today.".format(color_count(color),color))
